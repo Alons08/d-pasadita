@@ -419,41 +419,39 @@ img {
     color: var(--primary-dark);
 }
 
-/* Contacto Mobile - Versión unificada */
-.info-card-mobile {
+/* Contacto Mobile */
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.info-card {
     background: var(--white);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
-    display: block;
+    transition: var(--transition);
 }
 
-.info-item {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    align-items: flex-start;
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.info-item:last-child {
-    margin-bottom: 0;
-}
-
-.info-item i {
-    font-size: 1.2rem;
+.info-card i {
+    font-size: 1.5rem;
     color: var(--primary);
-    margin-top: 3px;
+    margin-bottom: 15px;
 }
 
-.info-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.info-item p {
-    font-size: 0.9rem;
+.info-card h3 {
+    font-size: 1.2rem;
     margin-bottom: 10px;
+}
+
+.info-card p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .whatsapp-link {
@@ -468,11 +466,6 @@ img {
 
 .whatsapp-link:hover {
     color: var(--primary);
-}
-
-/* Ocultamos la versión desktop en móviles */
-.info-card-desktop {
-    display: none;
 }
 
 .contact-map {
@@ -676,45 +669,15 @@ img {
         gap: 20px;
     }
     
-    /* Versión Desktop para contacto (3 cards) */
-    .info-card-mobile {
-        display: none;
-    }
-    
-    .info-card-desktop {
+    .contact-info {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        margin-bottom: 30px;
     }
     
-    .info-card {
-        background: var(--white);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: var(--transition);
-    }
-    
-    .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .info-card i {
-        font-size: 1.5rem;
-        color: var(--primary);
-        margin-bottom: 15px;
-    }
-    
-    .info-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-    
-    .info-card p {
-        margin-bottom: 15px;
-        font-size: 0.9rem;
+    .footer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }
 
@@ -724,9 +687,8 @@ img {
         grid-template-columns: repeat(3, 1fr);
     }
     
-    .footer-content {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .contact-info {
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .footer-logo {

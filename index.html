@@ -1,158 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurante Gourmet | Cocina fusión peruana</title>
-    <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="css/inicio.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Header/Navbar -->
     <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="img/logo.png" alt="Restaurante Gourmet" class="logo-img">
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#especialidades">Especialidades</a></li>
-                    <li><a href="#menu">Menú</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="img/logo.png" alt="Restaurante Gourmet" class="logo-img" />
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Experiencia gastronómica única</h1>
-            <p>Sabores tradicionales con toque moderno</p>
-            <div class="hero-buttons">
-                <a href="#menu" class="btn">Ver Menú</a>
-            </div>
+      <div class="hero-content">
+        <h1>Experiencia gastronómica única</h1>
+        <p>Sabores tradicionales con toque moderno</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn">Ver Menú</a>
         </div>
+      </div>
     </section>
 
     <!-- Especialidades -->
     <section id="especialidades" class="section">
-        <div class="container">
-            <h2>Nuestras Especialidades</h2>
-            <div class="especialidades-grid">
-                <div class="especialidad-card">
-                    <img src="img/lomo-saltado.jpg" alt="Lomo Saltado">
-                    <h3>Lomo Saltado Fusion</h3>
-                    <p>Carne, tomates cherry, cebolla morada, salsa de vino tinto</p>
-                    <span class="precio">S/42</span>
-                </div>
-                <div class="especialidad-card">
-                    <img src="img/ceviche.jpg" alt="Ceviche">
-                    <h3>Ceviche Gourmet</h3>
-                    <p>Pescado fresco, leche de tigre, camote, choclo</p>
-                    <span class="precio">S/38</span>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Nuestras Especialidades</h2>
+        <div class="especialidades-grid">
+          <div class="especialidad-card">
+            <img src="img/lomo-saltado.jpg" alt="Lomo Saltado" />
+            <h3>Lomo Saltado Fusion</h3>
+            <p>Carne, tomates cherry, cebolla morada, salsa de vino tinto</p>
+            <span class="precio">S/42</span>
+          </div>
+          <div class="especialidad-card">
+            <img src="img/ceviche.jpg" alt="Ceviche" />
+            <h3>Ceviche Gourmet</h3>
+            <p>Pescado fresco, leche de tigre, camote, choclo</p>
+            <span class="precio">S/38</span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Menú -->
     <section id="menu" class="section bg-light">
-        <div class="container">
-            <h2>Nuestro Menú</h2>
-            <div class="filtros">
-                <button class="filtro-btn active" data-categoria="todo">Todo</button>
-                <button class="filtro-btn" data-categoria="principales">Principales</button>
-                <button class="filtro-btn" data-categoria="postres">Postres</button>
-            </div>
-            <div class="menu-grid">
-                <!-- Principales -->
-                <div class="menu-item" data-categoria="principales">
-                    <img src="img/arroz-con-mariscos.jpg" alt="Arroz con Mariscos">
-                    <div class="menu-info">
-                        <h3>Arroz con Mariscos</h3>
-                        <p>Arroz, mariscos frescos, ají amarillo</p>
-                        <span class="precio">S/45</span>
-                    </div>
-                </div>
-                <div class="menu-item" data-categoria="principales">
-                    <img src="img/aji-de-gallina.jpg" alt="Ají de Gallina">
-                    <div class="menu-info">
-                        <h3>Ají de Gallina</h3>
-                        <p>Gallina, ají amarillo, nueces, pan francés</p>
-                        <span class="precio">S/40</span>
-                    </div>
-                </div>
-                
-                <!-- Postres -->
-                <div class="menu-item" data-categoria="postres">
-                    <img src="img/suspiro-limeño.jpg" alt="Suspiro Limeño">
-                    <div class="menu-info">
-                        <h3>Suspiro Limeño</h3>
-                        <p>Manjar blanco, merengue, canela</p>
-                        <span class="precio">S/28</span>
-                    </div>
-                </div>
-                <div class="menu-item" data-categoria="postres">
-                    <img src="img/mazamorra-morada.jpg" alt="Mazamorra Morada">
-                    <div class="menu-info">
-                        <h3>Mazamorra Morada</h3>
-                        <p>Maíz morado, frutas, especias</p>
-                        <span class="precio">S/25</span>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Nuestro Menú</h2>
+        <div class="filtros">
+          <button class="filtro-btn active" data-categoria="todo">Todo</button>
+          <button class="filtro-btn" data-categoria="principales">
+            Principales
+          </button>
+          <button class="filtro-btn" data-categoria="postres">Postres</button>
         </div>
+        <div class="menu-grid">
+          <!-- Principales -->
+          <div class="menu-item" data-categoria="principales">
+            <img src="img/arroz-con-mariscos.jpg" alt="Arroz con Mariscos" />
+            <div class="menu-info">
+              <h3>Arroz con Mariscos</h3>
+              <p>Arroz, mariscos frescos, ají amarillo</p>
+              <span class="precio">S/45</span>
+            </div>
+          </div>
+          <div class="menu-item" data-categoria="principales">
+            <img src="img/aji-de-gallina.jpg" alt="Ají de Gallina" />
+            <div class="menu-info">
+              <h3>Ají de Gallina</h3>
+              <p>Gallina, ají amarillo, nueces, pan francés</p>
+              <span class="precio">S/40</span>
+            </div>
+          </div>
+
+          <!-- Postres -->
+          <div class="menu-item" data-categoria="postres">
+            <img src="img/suspiro-limeño.jpg" alt="Suspiro Limeño" />
+            <div class="menu-info">
+              <h3>Suspiro Limeño</h3>
+              <p>Manjar blanco, merengue, canela</p>
+              <span class="precio">S/28</span>
+            </div>
+          </div>
+          <div class="menu-item" data-categoria="postres">
+            <img src="img/mazamorra-morada.jpg" alt="Mazamorra Morada" />
+            <div class="menu-info">
+              <h3>Mazamorra Morada</h3>
+              <p>Maíz morado, frutas, especias</p>
+              <span class="precio">S/25</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contacto -->
     <section id="contacto" class="section">
-        <div class="container">
-            <h2>Contacto</h2>
-            <div class="contacto-container">
-                <div class="info-contacto">
-                    <h3>Horario de atención</h3>
-                    <p>Lunes a Sábado: 12pm - 11pm</p>
-                    <p>Domingo: 12pm - 5pm</p>
-                    <div class="whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+51 931 088 900</span>
-                    </div>
-                    <div class="direccion">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Calle Gourmet 123, Lima</span>
-                    </div>
-                </div>
+      <div class="container">
+        <h2>Contacto</h2>
+        <div class="contacto-container">
+          <div class="info-contacto">
+            <h3>Horario de atención</h3>
+            <p><i class="fas fa-clock"></i> Lunes a Sábado: 12pm - 11pm</p>
+            <p><i class="fas fa-clock"></i> Domingo: 12pm - 5pm</p>
+
+            <div class="whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <span>+51 931 088 900</span>
             </div>
+
+            <div class="direccion">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Av. San Martín 235, Barranco 15063, Lima</span>
+            </div>
+          </div>
+
+          <div class="mapa-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.381944292347!2d-77.02154892501935!3d-12.100424943860207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c84ef965f0cf%3A0x3b9e3c9d42a1d1a4!2sAv.%20San%20Mart%C3%ADn%20235%2C%20Barranco%2015063!5e0!3m2!1ses-419!2spe!4v1690835789355!5m2!1ses-419!2spe"
+              width="100%"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <img src="img/logo.png" alt="Restaurante Gourmet" class="footer-logo">
-                </div>
-                <div class="footer-col">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <img
+              src="img/logo.png"
+              alt="Restaurante Gourmet"
+              class="footer-logo"
+            />
+          </div>
+          <div class="footer-col">
+            <h3>Síguenos</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="copyright">&copy; 2023 Restaurante Gourmet. Todos los derechos reservados.</p>
+          </div>
         </div>
+        <p class="copyright">
+          &copy; 2023 Restaurante Gourmet. Todos los derechos reservados.
+        </p>
+      </div>
     </footer>
 
     <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/51931088900" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="js/inicio.js"></script>
-</body>
+  </body>
 </html>

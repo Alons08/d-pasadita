@@ -1,25 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Filtros del menú
-    const filtroBtns = document.querySelectorAll('.filtro-btn');
-    const menuItems = document.querySelectorAll('.menu-item');
+    // Menú mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navMobile = document.getElementById('navMobile');
     
-    filtroBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remover clase active de todos los botones
-            filtroBtns.forEach(b => b.classList.remove('active'));
-            // Agregar clase active al botón clickeado
+    menuToggle.addEventListener('click', function() {
+        navMobile.classList.toggle('active');
+        this.classList.toggle('active');
+    });
+    
+    // Filtros del menú
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuCategories = document.querySelectorAll('.menu-category');
+    
+    menuTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remover clase active de todos los tabs
+            menuTabs.forEach(t => t.classList.remove('active'));
+            // Agregar clase active al tab clickeado
             this.classList.add('active');
             
-            const categoria = this.dataset.categoria;
+            const categoria = this.getAttribute('data-categoria');
             
-            // Filtrar items del menú
-            menuItems.forEach(item => {
-                if (categoria === 'todo' || item.dataset.categoria === categoria) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
+            // Ocultar todas las categorías
+            menuCategories.forEach(cat => {
+                cat.classList.remove('active');
             });
+            
+            // Mostrar la categoría seleccionada
+            document.getElementById(categoria).classList.add('active');
         });
     });
     
@@ -27,6 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // Cerrar menú mobile si está abierto
+            if (navMobile.classList.contains('active')) {
+                navMobile.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
             
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
@@ -44,9 +58,38 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
     });
+    
+    // Animaciones al hacer scroll
+    const animateOnScroll = function() {
+        const animatableElements = document.querySelectorAll('.section-title, .section-subtitle, .nosotros-content, .nosotros-image, .menu-item, .info-card');
+        
+        animatableElements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Configurar animaciones iniciales
+    function setupAnimations() {
+        const animatableElements = document.querySelectorAll('.section-title, .section-subtitle, .nosotros-content, .nosotros-image, .menu-item, .info-card');
+        
+        animatableElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+    }
+    
+    setupAnimations();
+    window.addEventListener('scroll', animateOnScroll);
 });

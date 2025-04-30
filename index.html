@@ -6,28 +6,21 @@
     <title>Restaurante Gourmet | Experiencia culinaria premium</title>
     <link rel="stylesheet" href="css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar Premium -->
+    <!-- Navbar Mobile-First -->
     <header class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <img src="img/logo-gold.png" alt="Restaurante Gourmet" class="logo-img">
+                <img src="img/logo-mobile.png" alt="Restaurante Gourmet" class="logo-img">
             </a>
             
-            <nav class="nav-desktop">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#menu">Menú</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             
             <nav class="nav-mobile" id="navMobile">
                 <ul>
@@ -45,177 +38,162 @@
         </div>
     </header>
 
-    <!-- Hero Section de Lujo -->
+    <!-- Hero Section Mobile Optimizado -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Sabores que cuentan historias</h1>
             <p class="hero-subtitle">Cocina peruana contemporánea desde 2010</p>
             <div class="hero-buttons">
-                <a href="#menu" class="btn btn-primary">Explorar Menú</a>
-                <a href="#contacto" class="btn btn-outline">Reservaciones</a>
+                <a href="#menu" class="btn btn-primary">Ver Menú</a>
+                <a href="#contacto" class="btn btn-outline">Reservar</a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Sección Nosotros Premium -->
+    <!-- Sección Nosotros Mobile -->
     <section id="nosotros" class="section section-nosotros">
         <div class="container">
-            <div class="nosotros-grid">
-                <div class="nosotros-content">
-                    <h2 class="section-title">Nuestra Historia</h2>
-                    <p class="nosotros-text">Fundado en el corazón de Lima en 2010, Restaurante Gourmet nació de la pasión por reinventar la cocina tradicional peruana. Nuestro chef ejecutivo, ganador del premio "Golden Fork 2022", combina técnicas contemporáneas con ingredientes locales seleccionados.</p>
-                    <div class="signature">
-                        <img src="img/firma-chef.png" alt="Firma del Chef">
-                    </div>
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <p>Fundado en el corazón de Lima en 2010, Restaurante Gourmet nació de la pasión por reinventar la cocina tradicional peruana. Nuestro chef ejecutivo, ganador del premio "Golden Fork 2022", combina técnicas contemporáneas con ingredientes locales seleccionados.</p>
                 </div>
                 <div class="nosotros-image">
-                    <div class="image-frame">
-                        <img src="img/equipo.jpg" alt="Nuestro equipo">
-                    </div>
+                    <img src="img/equipo-mobile.jpg" alt="Nuestro equipo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menú Premium -->
+    <!-- Menú Mobile Optimizado -->
     <section id="menu" class="section section-menu">
         <div class="container">
             <h2 class="section-title">Nuestra Carta</h2>
-            <p class="section-subtitle">Selección cuidadosamente curada</p>
             
-            <div class="menu-tabs">
-                <button class="menu-tab active" data-categoria="principales">Platos Principales</button>
-                <button class="menu-tab" data-categoria="postres">Postres</button>
-                <button class="menu-tab" data-categoria="bebidas">Bebidas</button>
+            <div class="menu-tabs-container">
+                <div class="menu-tabs" id="menuTabs">
+                    <button class="menu-tab active" data-categoria="principales">Principales</button>
+                    <button class="menu-tab" data-categoria="postres">Postres</button>
+                    <button class="menu-tab" data-categoria="bebidas">Bebidas</button>
+                </div>
             </div>
             
-            <div class="menu-categories">
-                <!-- Categoría Principales -->
+            <div class="menu-items-container">
                 <div class="menu-category active" id="principales">
+                    <!-- Item 1 -->
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="img/plato1.jpg" alt="Lomo Saltado">
-                            <span class="price-tag">S/42</span>
+                            <img src="img/plato1-mobile.jpg" alt="Lomo Saltado">
                         </div>
                         <div class="menu-item-details">
-                            <h3>Lomo Saltado Gourmet</h3>
+                            <div class="item-header">
+                                <h3>Lomo Saltado Gourmet</h3>
+                                <span class="price">S/42</span>
+                            </div>
                             <p class="ingredients">Carne Angus, tomates cherry, cebolla morada, salsa de vino tinto, papas nativas</p>
                             <div class="menu-badge">Chef's Selection</div>
                         </div>
                     </div>
                     
+                    <!-- Item 2 -->
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="img/plato2.jpg" alt="Ceviche">
-                            <span class="price-tag">S/38</span>
+                            <img src="img/plato2-mobile.jpg" alt="Ceviche">
                         </div>
                         <div class="menu-item-details">
-                            <h3>Ceviche Clásico</h3>
+                            <div class="item-header">
+                                <h3>Ceviche Clásico</h3>
+                                <span class="price">S/38</span>
+                            </div>
                             <p class="ingredients">Pescado del día, leche de tigre, camote, choclo, cancha serrana</p>
                             <div class="menu-badge seasonal">Temporada</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Categoría Postres -->
-                <div class="menu-category" id="postres">
-                    <!-- Items de postres... -->
-                </div>
+                <!-- Otras categorías... -->
             </div>
         </div>
     </section>
 
-    <!-- Contacto Premium -->
+    <!-- Contacto Mobile -->
     <section id="contacto" class="section section-contact">
         <div class="container">
-            <h2 class="section-title">Reserva tu Experiencia</h2>
-            <p class="section-subtitle">Déjanos crear un momento memorable</p>
+            <h2 class="section-title">Reserva tu Mesa</h2>
             
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Ubicación</h3>
-                        <p>Av. Piura Max F1 Lt 19<br>Cambio Puente, Lima</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Horario</h3>
-                        <p>Lunes - Sábado: 12pm - 11pm<br>Domingo: 12pm - 5pm</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <h3>Reservas</h3>
-                        <p>+51 931 088 900</p>
-                        <a href="https://wa.me/51931088900" class="whatsapp-link">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                    </div>
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ubicación</h3>
+                    <p>Av. Piura Max F1 Lt 19<br>Cambio Puente, Lima</p>
                 </div>
                 
-                <div class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.381944292347!2d-77.02154892501935!3d-12.100424943860207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c84ef965f0cf%3A0x3b9e3c9d42a1d1a4!2sAv.%20San%20Mart%C3%ADn%20235%2C%20Barranco%2015063!5e0!3m2!1ses-419!2spe!4v1690835789355!5m2!1ses-419!2spe" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                    </iframe>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horario</h3>
+                    <p>Lunes - Sábado: 12pm - 11pm<br>Domingo: 12pm - 5pm</p>
                 </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Reservas</h3>
+                    <p>+51 931 088 900</p>
+                    <a href="https://wa.me/51931088900" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.4245279634192!2d-78.55436629960474!3d-8.99850647746461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ac79967525075d%3A0x8c1067969ad1d5fd!2sD&#39;pasadita%20Restaurant!5e0!3m2!1ses-419!2spe!4v1746041404402!5m2!1ses-419!2spe"  
+                        allowfullscreen="" 
+                        loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer Premium -->
+    <!-- Footer Mobile -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <img src="img/logo-white.png" alt="Restaurante Gourmet" class="footer-logo">
-                    <p class="footer-about">Ofreciendo experiencias gastronómicas excepcionales desde 2010.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo-mobile-white.png" alt="Restaurante Gourmet">
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Explorar</h3>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#menu">Menú</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h3>Explorar</h3>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                            <li><a href="#menu">Menú</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Términos</a></li>
+                            <li><a href="#">Privacidad</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
+                <div class="footer-social">
                     <h3>Síguenos</h3>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                    </div>
-                    <div class="newsletter">
-                        <p>Suscríbete a nuestro newsletter</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Tu correo electrónico">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2023 Restaurante Gourmet. Todos los derechos reservados.</p>
-                <p>Diseñado con <i class="fas fa-heart"></i> para amantes de la buena comida</p>
             </div>
         </div>
     </footer>
@@ -223,7 +201,6 @@
     <!-- Botón de WhatsApp flotante -->
     <a href="https://wa.me/51931088900" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
-        <span>Reservar</span>
     </a>
 
     <script src="js/inicio.js"></script>

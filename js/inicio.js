@@ -4,25 +4,81 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMobile = document.getElementById('navMobile');
     
     menuToggle.addEventListener('click', function() {
-        navMobile.classList.toggle('active');
         this.classList.toggle('active');
+        navMobile.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
     });
     
-    // Filtros del menú
-    const menuTabs = document.querySelectorAll('.menu-tab');
-    const menuCategories = document.querySelectorAll('.menu-category');
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('#navMobile a').forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navMobile.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+    });
     
-    menuTabs.forEach(tab => {
+    // Filtros del menú con scroll horizontal táctil
+    const menuTabs = document.getElementById('menuTabs');
+    let isDragging = false;
+    let startX, scrollLeft;
+    
+    menuTabs.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - menuTabs.offsetLeft;
+        scrollLeft = menuTabs.scrollLeft;
+    });
+    
+    menuTabs.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+    
+    menuTabs.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+    
+    menuTabs.addEventListener('mousemove', (e) => {
+        if(!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - menuTabs.offsetLeft;
+        const walk = (x - startX) * 2;
+        menuTabs.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Touch events para móviles
+    menuTabs.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].pageX - menuTabs.offsetLeft;
+        scrollLeft = menuTabs.scrollLeft;
+    });
+    
+    menuTabs.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    menuTabs.addEventListener('touchmove', (e) => {
+        if(!isDragging) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - menuTabs.offsetLeft;
+        const walk = (x - startX) * 2;
+        menuTabs.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Cambiar categorías del menú
+    document.querySelectorAll('.menu-tab').forEach(tab => {
         tab.addEventListener('click', function() {
-            // Remover clase active de todos los tabs
-            menuTabs.forEach(t => t.classList.remove('active'));
-            // Agregar clase active al tab clickeado
+            // Remover active de todos los tabs
+            document.querySelectorAll('.menu-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Agregar active al tab clickeado
             this.classList.add('active');
             
             const categoria = this.getAttribute('data-categoria');
             
             // Ocultar todas las categorías
-            menuCategories.forEach(cat => {
+            document.querySelectorAll('.menu-category').forEach(cat => {
                 cat.classList.remove('active');
             });
             
@@ -36,43 +92,27 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Cerrar menú mobile si está abierto
-            if (navMobile.classList.contains('active')) {
-                navMobile.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-            
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             
-            if (targetElement) {
+            if(targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Cambiar navbar al hacer scroll
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // Animaciones al hacer scroll
+    // Efecto de carga suave
     const animateOnScroll = function() {
-        const animatableElements = document.querySelectorAll('.section-title, .section-subtitle, .nosotros-content, .nosotros-image, .menu-item, .info-card');
+        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
         
-        animatableElements.forEach(element => {
+        elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
+            const screenPosition = window.innerHeight / 1.2;
             
-            if (elementPosition < screenPosition) {
+            if(elementPosition < screenPosition) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
             }
@@ -81,9 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar animaciones iniciales
     function setupAnimations() {
-        const animatableElements = document.querySelectorAll('.section-title, .section-subtitle, .nosotros-content, .nosotros-image, .menu-item, .info-card');
+        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
         
-        animatableElements.forEach(el => {
+        elements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
@@ -92,4 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setupAnimations();
     window.addEventListener('scroll', animateOnScroll);
+    
+    // Cargar animaciones al inicio
+    animateOnScroll();
 });

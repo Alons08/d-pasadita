@@ -40,16 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Formulario de reserva (simulado)
-    const reservaForm = document.querySelector('.reserva-form');
-    if (reservaForm) {
-        reservaForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Reserva enviada con éxito! Nos comunicaremos contigo pronto.');
-            this.reset();
-        });
-    }
-    
     // Cambiar navbar al hacer scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');

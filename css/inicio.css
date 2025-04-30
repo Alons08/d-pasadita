@@ -419,39 +419,41 @@ img {
     color: var(--primary-dark);
 }
 
-/* Contacto Mobile */
-.contact-info {
-    margin-bottom: 30px;
-}
-
-.info-card {
+/* Contacto Mobile - Versión unificada */
+.info-card-mobile {
     background: var(--white);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
-    transition: var(--transition);
+    display: block;
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
-.info-card i {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin-bottom: 15px;
+.info-item:last-child {
+    margin-bottom: 0;
 }
 
-.info-card h3 {
+.info-item i {
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    color: var(--primary);
+    margin-top: 3px;
 }
 
-.info-card p {
-    margin-bottom: 15px;
+.info-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.info-item p {
     font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
 .whatsapp-link {
@@ -466,6 +468,11 @@ img {
 
 .whatsapp-link:hover {
     color: var(--primary);
+}
+
+/* Ocultamos la versión desktop en móviles */
+.info-card-desktop {
+    display: none;
 }
 
 .contact-map {
@@ -669,15 +676,45 @@ img {
         gap: 20px;
     }
     
-    .contact-info {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    /* Versión Desktop para contacto (3 cards) */
+    .info-card-mobile {
+        display: none;
     }
     
-    .footer-content {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .info-card-desktop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .info-card {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+    }
+    
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-card i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .info-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .info-card p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
     }
 }
 
@@ -687,8 +724,9 @@ img {
         grid-template-columns: repeat(3, 1fr);
     }
     
-    .contact-info {
-        grid-template-columns: repeat(3, 1fr);
+    .footer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     
     .footer-logo {

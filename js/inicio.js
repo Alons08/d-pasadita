@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Efecto de carga suave
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
+        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card, .info-card-mobile');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar animaciones iniciales
     function setupAnimations() {
-        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
+        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card, .info-card-mobile');
         
         elements.forEach(el => {
             el.style.opacity = '0';

@@ -1,11 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hola</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Gourmet | Cocina fusión peruana</title>
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1 class="hola">hola mundo</h1>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Restaurante<span>Gourmet</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="#contacto" class="btn-reserva">Reservar</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Experiencia gastronómica única</h1>
+            <p>Sabores tradicionales con toque moderno</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn">Ver Menú</a>
+                <a href="#contacto" class="btn btn-outline">Reservar Mesa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades" class="section">
+        <div class="container">
+            <h2>Nuestras Especialidades</h2>
+            <div class="especialidades-grid">
+                <div class="especialidad-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Lomo Saltado">
+                    <h3>Lomo Saltado Fusion</h3>
+                    <p>Carne, tomates cherry, cebolla morada, salsa de vino tinto</p>
+                    <span class="precio">S/42</span>
+                </div>
+                <!-- Repetir para más platos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú -->
+    <section id="menu" class="section bg-light">
+        <div class="container">
+            <h2>Nuestro Menú</h2>
+            <div class="filtros">
+                <button class="filtro-btn active" data-categoria="todo">Todo</button>
+                <button class="filtro-btn" data-categoria="entradas">Entradas</button>
+                <button class="filtro-btn" data-categoria="principales">Principales</button>
+                <button class="filtro-btn" data-categoria="postres">Postres</button>
+            </div>
+            <div class="menu-grid">
+                <!-- Items del menú -->
+                <div class="menu-item" data-categoria="entradas">
+                    <img src="https://via.placeholder.com/150" alt="Causa limeña">
+                    <div class="menu-info">
+                        <h3>Causa Limeña</h3>
+                        <p>Papa amarilla, ají amarillo, pollo, palta</p>
+                        <span class="precio">S/28</span>
+                    </div>
+                </div>
+                <!-- Más items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2>Reserva tu Mesa</h2>
+            <div class="contacto-container">
+                <form class="reserva-form">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="tel" placeholder="Teléfono" required>
+                    <select required>
+                        <option value="" disabled selected>Número de personas</option>
+                        <option value="2">2 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="6">6+ personas</option>
+                    </select>
+                    <button type="submit" class="btn">Confirmar Reserva</button>
+                </form>
+                <div class="info-contacto">
+                    <h3>Horario de atención</h3>
+                    <p>Lunes a Sábado: 12pm - 11pm</p>
+                    <p>Domingo: 12pm - 5pm</p>
+                    <div class="whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+51 931 088 900</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Restaurante Gourmet</h3>
+                    <p>Calle Gourmet 123, Lima</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2023 Restaurante Gourmet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51931088900" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/inicio.js"></script>
 </body>
 </html>

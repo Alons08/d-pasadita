@@ -274,9 +274,7 @@ a {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 25px;
-    padding: 15px;
-    background-color: var(--light-gray);
-    border-radius: 8px;
+    padding: 10px 0;
     width: 100%;
     -webkit-overflow-scrolling: touch;
 }
@@ -286,9 +284,7 @@ a {
     background: transparent;
     border: none;
     border-radius: 30px;
-    position: relative;
-    margin: 0 5px;
-    /*color: var(--gray);*/
+    color: var(--gray);
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;

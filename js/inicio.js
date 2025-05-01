@@ -1,93 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menú mobile
+    // Menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
-    const navMobile = document.getElementById('navMobile');
+    const navLinks = document.getElementById('navLinks');
     
     menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMobile.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+        navLinks.classList.toggle('active');
     });
     
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('#navMobile a').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMobile.classList.remove('active');
-            document.body.classList.remove('no-scroll');
+    // Close menu when clicking on a link
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navLinks.classList.remove('active');
         });
     });
     
-    // Filtros del menú con scroll horizontal táctil
-    const menuTabs = document.getElementById('menuTabs');
-    let isDragging = false;
-    let startX, scrollLeft;
-    
-    menuTabs.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - menuTabs.offsetLeft;
-        scrollLeft = menuTabs.scrollLeft;
-    });
-    
-    menuTabs.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
-    
-    menuTabs.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-    
-    menuTabs.addEventListener('mousemove', (e) => {
-        if(!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - menuTabs.offsetLeft;
-        const walk = (x - startX) * 2;
-        menuTabs.scrollLeft = scrollLeft - walk;
-    });
-    
-    // Touch events para móviles
-    menuTabs.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startX = e.touches[0].pageX - menuTabs.offsetLeft;
-        scrollLeft = menuTabs.scrollLeft;
-    });
-    
-    menuTabs.addEventListener('touchend', () => {
-        isDragging = false;
-    });
-    
-    menuTabs.addEventListener('touchmove', (e) => {
-        if(!isDragging) return;
-        e.preventDefault();
-        const x = e.touches[0].pageX - menuTabs.offsetLeft;
-        const walk = (x - startX) * 2;
-        menuTabs.scrollLeft = scrollLeft - walk;
-    });
-    
-    // Cambiar categorías del menú
-    document.querySelectorAll('.menu-tab').forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remover active de todos los tabs
-            document.querySelectorAll('.menu-tab').forEach(t => {
-                t.classList.remove('active');
-            });
-            
-            // Agregar active al tab clickeado
-            this.classList.add('active');
-            
-            const categoria = this.getAttribute('data-categoria');
-            
-            // Ocultar todas las categorías
-            document.querySelectorAll('.menu-category').forEach(cat => {
-                cat.classList.remove('active');
-            });
-            
-            // Mostrar la categoría seleccionada
-            document.getElementById(categoria).classList.add('active');
-        });
-    });
-    
-    // Smooth scrolling para anclas
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -95,44 +23,121 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             
-            if(targetElement) {
+            if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Efecto de carga suave
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if(elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
+    // Menu filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
     
-    // Configurar animaciones iniciales
-    function setupAnimations() {
-        const elements = document.querySelectorAll('.section-title, .nosotros-content, .menu-item, .info-card');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            menuItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Sample menu data (in a real project, this would come from an API or database)
+    const menuData = [
+        {
+            name: "Lomo Saltado",
+            description: "Trozos de lomo de res salteados con cebolla, tomate y papas fritas. Servido con arroz blanco.",
+            price: 15.99,
+            category: "platos-fuertes",
+            image: "images/lomo-saltado.jpg",
+            available: true
+        },
+        {
+            name: "Pollo a la Brasa",
+            description: "Pollo marinado en especias y cocido a la brasa. Acompañado de papas fritas y ensalada fresca.",
+            price: 14.50,
+            category: "platos-fuertes",
+            image: "images/pollo-brasa.jpg",
+            available: true
+        },
+        {
+            name: "Causa Limeña",
+            description: "Deliciosa causa rellena de pollo o atún con palta. Decorada con huevo y aceitunas.",
+            price: 9.99,
+            category: "entradas",
+            image: "images/causa.jpg",
+            available: true
+        },
+        {
+            name: "Suspiro Limeño",
+            description: "Postre tradicional peruano a base de manjar blanco y merengue.",
+            price: 7.50,
+            category: "postres",
+            image: "images/suspiro.jpg",
+            available: false
+        },
+        {
+            name: "Chicha Morada",
+            description: "Refrescante bebida hecha de maíz morado, con toques de canela y clavo de olor.",
+            price: 4.50,
+            category: "bebidas",
+            image: "images/chicha.jpg",
+            available: true
+        }
+    ];
+    
+    // Function to generate menu items from data
+    function generateMenuItems() {
+        const menuContainer = document.querySelector('.menu-items');
         
-        elements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
+        menuData.forEach(item => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-category', item.category);
+            
+            const availabilityClass = item.available ? 'available' : 'not-available';
+            const availabilityText = item.available ? 'Disponible' : 'Agotado';
+            
+            menuItem.innerHTML = `
+                <div class="item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                    <span class="availability ${availabilityClass}">${availabilityText}</span>
+                </div>
+                <div class="item-info">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <span class="price">$${item.price.toFixed(2)}</span>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
         });
     }
     
-    setupAnimations();
-    window.addEventListener('scroll', animateOnScroll);
+    // Call the function to generate menu items
+    generateMenuItems();
     
-    // Cargar animaciones al inicio
-    animateOnScroll();
+    // Add scroll animation
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+    });
 });

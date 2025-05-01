@@ -3,311 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Gourmet | Experiencia culinaria premium</title>
+    <title>Restaurante Delicioso</title>
     <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar Mobile-First -->
-    <header class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <img src="img/logo-mobile.png" alt="Restaurante Gourmet" class="logo-img">
+                <img src="images/logo.png" alt="Restaurante Delicioso">
             </a>
-            
             <button class="menu-toggle" id="menuToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <i class="fas fa-bars"></i>
             </button>
-            
-            <nav class="nav-mobile" id="navMobile">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#menu">Menú</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li class="whatsapp-mobile">
-                        <a href="https://wa.me/51931088900">
-                            <i class="fab fa-whatsapp"></i> Reservar
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#reserva">Reserva</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section Mobile Optimizado -->
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1 class="hero-title">Sabores que cuentan historias</h1>
-            <p class="hero-subtitle">Cocina peruana contemporánea desde 2010</p>
-            <div class="hero-buttons">
-                <a href="#menu" class="btn btn-primary">Ver Menú</a>
-                <a href="#contacto" class="btn btn-outline">Reservar</a>
-            </div>
+            <h1>Sabores que inspiran</h1>
+            <p>Descubre la auténtica cocina con nuestro toque especial</p>
+            <a href="#reserva" class="btn">Reserva tu mesa</a>
         </div>
     </section>
 
-    <!-- Sección Nosotros Mobile -->
-    <section id="nosotros" class="section section-nosotros">
+    <!-- Nosotros Section -->
+    <section class="section nosotros" id="nosotros">
         <div class="container">
             <h2 class="section-title">Nuestra Historia</h2>
             <div class="nosotros-content">
                 <div class="nosotros-text">
-                    <p>Fundado en el corazón de Lima en 2010, Restaurante Gourmet nació de la pasión por reinventar la cocina tradicional peruana. Nuestro chef ejecutivo, ganador del premio "Golden Fork 2022", combina técnicas contemporáneas con ingredientes locales seleccionados.</p>
+                    <p>Desde 2010, hemos estado sirviendo platos tradicionales con un toque moderno. Nuestro fundador, Chef Carlos, comenzó este sueño con una pequeña cocina y hoy somos un referente gastronómico en la ciudad.</p>
+                    <p>Nos enorgullece usar ingredientes frescos y de calidad, preparados con técnicas tradicionales que resaltan los sabores auténticos de nuestra región.</p>
                 </div>
                 <div class="nosotros-image">
-                    <img src="img/equipo-mobile.jpg" alt="Nuestro equipo">
+                    <img src="images/equipo.jpg" alt="Nuestro equipo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menú Mobile Optimizado -->
-    <section id="menu" class="section section-menu">
+    <!-- Menú Section -->
+    <section class="section menu" id="menu">
         <div class="container">
-            <h2 class="section-title">Nuestra Carta</h2>
-            
-            <div class="menu-tabs-container">
-                <div class="menu-tabs" id="menuTabs">
-                    <button class="menu-tab active" data-categoria="principales">Principales</button>
-                    <button class="menu-tab" data-categoria="postres">Postres</button>
-                    <button class="menu-tab" data-categoria="bebidas">Bebidas</button>
-                </div>
+            <h2 class="section-title">Nuestro Menú</h2>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="entradas">Entradas</button>
+                <button class="filter-btn" data-filter="platos-fuertes">Platos Fuertes</button>
+                <button class="filter-btn" data-filter="postres">Postres</button>
+                <button class="filter-btn" data-filter="bebidas">Bebidas</button>
             </div>
-            
-            <div class="menu-items-container">
-                <!-- CATEGORÍA PRINCIPALES -->
-                <div class="menu-category active" id="principales">
-                    <!-- Item 1 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/plato1-mobile.jpg" alt="Lomo Saltado">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Lomo Saltado Gourmet</h3>
-                                <span class="price">S/42</span>
-                            </div>
-                            <p class="ingredients">Carne Angus, tomates cherry, cebolla morada, salsa de vino tinto, papas nativas</p>
-                            <div class="menu-badge">Chef's Selection</div>
-                        </div>
+            <div class="menu-items">
+                <!-- Ejemplo de ítem de menú -->
+                <div class="menu-item" data-category="entradas">
+                    <div class="item-image">
+                        <img src="images/ceviche.jpg" alt="Ceviche">
+                        <span class="availability available">Disponible</span>
                     </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/plato2-mobile.jpg" alt="Ceviche">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Ceviche Clásico</h3>
-                                <span class="price">S/38</span>
-                            </div>
-                            <p class="ingredients">Pescado del día, leche de tigre, camote, choclo, cancha serrana</p>
-                            <div class="menu-badge seasonal">Temporada</div>
-                        </div>
+                    <div class="item-info">
+                        <h3>Ceviche Clásico</h3>
+                        <p>Pescado fresco marinado en limón con cebolla, ají y cilantro. Acompañado de camote y choclo.</p>
+                        <span class="price">$12.99</span>
                     </div>
                 </div>
                 
-                <!-- CATEGORÍA POSTRES -->
-                <div class="menu-category" id="postres">
-                    <!-- Postre 1 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/postre1-mobile.jpg" alt="Suspiro Limeño">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Suspiro Limeño Gourmet</h3>
-                                <span class="price">S/28</span>
-                            </div>
-                            <p class="ingredients">Manjarblanco de lúcuma, merengue italiano, oporto y canela</p>
-                            <div class="menu-badge seasonal">Especialidad</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Postre 2 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/postre2-mobile.jpg" alt="Mousse de Chocolate">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Mousse de Cacao Amazónico</h3>
-                                <span class="price">S/32</span>
-                            </div>
-                            <p class="ingredients">Chocolate 70% de Satipo, crema chantilly y oro comestible</p>
-                            <div class="menu-badge">Chef's Selection</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Postre 3 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/postre3-mobile.jpg" alt="Cheesecake">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Cheesecake de Maracuyá</h3>
-                                <span class="price">S/30</span>
-                            </div>
-                            <p class="ingredients">Base de galleta de vainilla, crema de queso y coulis de maracuyá</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CATEGORÍA BEBIDAS -->
-                <div class="menu-category" id="bebidas">
-                    <!-- Bebida 1 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/bebida1-mobile.jpg" alt="Pisco Sour">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Pisco Sour Signature</h3>
-                                <span class="price">S/35</span>
-                            </div>
-                            <p class="ingredients">Pisco acholado, limón de Pica, jarabe de chancaca, amargo de angostura</p>
-                            <div class="menu-badge">Especialidad</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bebida 2 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/bebida2-mobile.jpg" alt="Chicha Morada">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Chicha Morada Artesanal</h3>
-                                <span class="price">S/18</span>
-                            </div>
-                            <p class="ingredients">Maíz morado orgánico, piña, membrillo, especias y limón</p>
-                            <div class="menu-badge seasonal">Temporada</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bebida 3 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/bebida3-mobile.jpg" alt="Cóctel Sin Alcohol">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Amazon Sunset</h3>
-                                <span class="price">S/25</span>
-                            </div>
-                            <p class="ingredients">Aguaje, camu camu, jugo de maracuyá y soda de jengibre</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Bebida 4 -->
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="img/bebida4-mobile.jpg" alt="Vinos">
-                        </div>
-                        <div class="menu-item-details">
-                            <div class="item-header">
-                                <h3>Selección de Vinos</h3>
-                                <span class="price">S/45</span>
-                            </div>
-                            <p class="ingredients">Copa de vino tinto/blanco - Selección de viñedos peruanos</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Más ítems se agregarán dinámicamente con JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Contacto Mobile -->
-    <section id="contacto" class="section section-contact">
+    <!-- Reserva Section -->
+    <section class="section reserva" id="reserva">
         <div class="container">
             <h2 class="section-title">Reserva tu Mesa</h2>
-            
-            <div class="contact-info">        
-              <div class="info-card">
-                <i class="fas fa-phone-alt"></i>
-                <h3>Reservas</h3>
-                <p>+51 931 088 900</p>
-                <a href="https://wa.me/51931088900" class="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
-                <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Horario</h3>
-                    <p>Lunes - Sábado: 12pm - 11pm<br>Domingo: 12pm - 5pm</p>
+            <div class="reserva-content">
+                <div class="reserva-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Lunes a Viernes: 11am - 10pm<br>Sábado y Domingo: 10am - 11pm</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Av. Principal 123, Distrito, Ciudad</p>
+                    </div>
                 </div>
-
-                <div class="info-card">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <h3>Ubicación</h3>
-                  <p>Av. Piura Max F1 Lt 19<br>Cambio Puente, Lima</p>
-              </div>
-            </div>
-            
-            <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.4245279634192!2d-78.55436629960474!3d-8.99850647746461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ac79967525075d%3A0x8c1067969ad1d5fd!2sD&#39;pasadita%20Restaurant!5e0!3m2!1ses-419!2spe!4v1746041404402!5m2!1ses-419!2spe" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                </iframe>
+                <div class="reserva-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.965949600833!2d-77.0426901851866!3d-12.046045191465934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDAyJzQ1LjgiUyA3N8KwMDInMjkuOSJX!5e0!3m2!1ses!2spe!4v1620000000000!5m2!1ses!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Mobile -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="img/logo-mobile-white.png" alt="Restaurante Gourmet">
+                    <img src="images/logo-footer.png" alt="Restaurante Delicioso">
                 </div>
-                
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h3>Explorar</h3>
-                        <ul>
-                            <li><a href="#inicio">Inicio</a></li>
-                            <li><a href="#nosotros">Nosotros</a></li>
-                            <li><a href="#menu">Menú</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-col">
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="#">Términos</a></li>
-                            <li><a href="#">Privacidad</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
                 <div class="footer-social">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#menu">Menú</a>
+                    <a href="#reserva">Reservas</a>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2023 Restaurante Gourmet. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Restaurante Delicioso. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Botón de WhatsApp flotante -->
-    <a href="https://wa.me/51931088900" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <script src="js/inicio.js"></script>
 </body>

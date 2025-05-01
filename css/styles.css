@@ -270,7 +270,7 @@ a {
 
 .menu-filters {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /*center;*/
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 25px;

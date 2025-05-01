@@ -268,7 +268,6 @@ a {
     background-color: white;
 }
 
-/* Filtros centrados en móvil - NUEVA VERSIÓN */
 .menu-filters {
     display: flex;
     justify-content: center;
@@ -288,9 +287,9 @@ a {
     border: none;
     border-radius: 0;
     position: relative;
+    margin: 0 5px;
     color: var(--gray);
     font-size: 0.9rem;
-    white-space: nowrap;
 }
 
 .filter-btn.active, .filter-btn:hover {
@@ -535,21 +534,16 @@ a {
         font-size: 1.8rem;
     }
     
-    /* Filtros centrados en móvil */
     .menu-filters {
-        justify-content: center;
-        padding: 10px 15px;
         overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 5px;
         scrollbar-width: none;
+        white-space: nowrap;
     }
     
     .menu-filters::-webkit-scrollbar {
         display: none;
-    }
-    
-    .filter-btn {
-        flex: 0 0 auto;
-        margin: 0 5px;
     }
     
     .hero-buttons {

@@ -105,21 +105,21 @@ a {
     align-items: center;
 }
 
-/* EFECTO ESPECIAL SOLO PARA EL LOGO DEL NAVBAR */
+/* EFECTO MODIFICADO PARA NAVBAR - AMARILLO + GRIS OSCURO CON TRANSICIÓN LENTA */
 .navbar .restaurant-name {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #000000, #FFC107, #000000);
+    background: linear-gradient(90deg, #333333, #FFC107, #333333);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientGlow 3.5s ease infinite;
+    animation: gradientGlow 6s ease infinite;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
+    transition: all 0.6s ease;
 }
 
 @keyframes gradientGlow {
@@ -129,7 +129,7 @@ a {
     }
     50% {
         background-position: 100% center;
-        text-shadow: 0 2px 15px rgba(255,193,7,0.4);
+        text-shadow: 0 2px 15px rgba(255,193,7,0.3);
     }
     100% {
         background-position: 0% center;
@@ -138,8 +138,8 @@ a {
 }
 
 .navbar .restaurant-name:hover {
-    animation: gradientGlow 1.5s ease infinite;
-    text-shadow: 0 4px 20px rgba(255,193,7,0.6);
+    animation: gradientGlow 3s ease infinite;
+    text-shadow: 0 4px 20px rgba(255,193,7,0.4);
 }
 
 .nav-links {
@@ -536,7 +536,6 @@ a {
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    /* Se eliminan todos los efectos especiales */
     background: none;
     -webkit-text-fill-color: initial;
     text-shadow: none;

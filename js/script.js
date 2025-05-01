@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Aplicar los ajustes
         hero.style.marginTop = `${navbarHeight}px`;
         hero.style.height = `calc(100vh - ${navbarHeight}px)`;
+        
+        // Mostrar el hero después de los cálculos
+        setTimeout(() => {
+            document.querySelector('.hero').classList.add('hero-loaded');
+        }, 100);
     }
 
     // Ajustar inicialmente
@@ -21,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajustar después de que todo esté completamente cargado
     window.addEventListener('load', function() {
         adjustHero();
-        // Mostrar el hero después de los cálculos
-        document.querySelector('.hero').classList.add('hero-loaded');
     });
     
     // Solución para Safari (puede necesitar un pequeño retraso)

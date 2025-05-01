@@ -170,10 +170,9 @@ a {
     color: var(--white);
 }
 
-/* Hero Section */
+/* Hero Section Animation */
 .hero {
     display: flex;
-    visibility: hidden;
     height: 100vh;
     min-height: 500px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg');
@@ -183,17 +182,28 @@ a {
     text-align: center;
     color: var(--white);
     margin-top: 0;
-    transition: visibility 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .hero-loaded {
-    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.hero-loaded .hero-content {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero h1 {
@@ -201,6 +211,14 @@ a {
     margin-bottom: 15px;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+}
+
+.hero-loaded h1 {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero p {
@@ -208,6 +226,14 @@ a {
     margin-bottom: 30px;
     color: white;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.9s, transform 0.8s ease-out 0.9s;
+}
+
+.hero-loaded p {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-buttons {
@@ -215,6 +241,14 @@ a {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 1.2s, transform 0.8s ease-out 1.2s;
+}
+
+.hero-loaded .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .btn-outline {
@@ -277,6 +311,12 @@ a {
     padding: 10px 0;
     width: 100%;
     -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.menu-filters::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-btn {
@@ -289,6 +329,7 @@ a {
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .filter-btn.active {
@@ -526,18 +567,6 @@ a {
     
     .section-title {
         font-size: 1.8rem;
-    }
-    
-    .menu-filters {
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 5px;
-        scrollbar-width: none;
-        white-space: nowrap;
-    }
-    
-    .menu-filters::-webkit-scrollbar {
-        display: none;
     }
     
     .hero-buttons {

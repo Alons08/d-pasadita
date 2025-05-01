@@ -288,7 +288,7 @@ a {
     border-radius: 30px;
     position: relative;
     margin: 0 5px;
-    color: var(--gray);
+    /*color: var(--gray);*/
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;

@@ -224,7 +224,7 @@ a {
 
 /* Nosotros Section */
 .nosotros {
-    background-color: #FFF9E6;
+    background-color: #FFF5D2; /*COLOR */
 }
 
 .nosotros-content {
@@ -259,7 +259,7 @@ a {
 
 /* Menu Section */
 .menu {
-    background-color: white;
+    background-color: white; /*COLOR*/
 }
 
 .menu-filters {
@@ -380,7 +380,7 @@ a {
 
 /* Reserva Section */
 .reserva {
-    background-color: #FFF5D2;
+    background-color: #FFF5D2; /*COLOR*/
 }
 
 .reserva-content {

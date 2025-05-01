@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const navbarHeight = navbar.offsetHeight;
         
         // Aplicar los ajustes
-        hero.style.marginTop = `${navbarHeight}px`;
+        hero.style.marginTop = '0';
         hero.style.height = `calc(100vh - ${navbarHeight}px)`;
         
         // Mostrar el hero después de los cálculos
@@ -23,14 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajustar cuando cambia el tamaño de la ventana
     window.addEventListener('resize', adjustHero);
     
-    // Ajustar después de que todo esté completamente cargado
-    window.addEventListener('load', function() {
-        adjustHero();
-    });
-    
-    // Solución para Safari (puede necesitar un pequeño retraso)
-    setTimeout(adjustHero, 100);
-
     // Menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -54,10 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
             
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - navbarHeight,
                     behavior: 'smooth'
                 });
             }

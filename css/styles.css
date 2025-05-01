@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 :root {
     --primary-color: #FFC107;
     --primary-dark: #FFA000;
@@ -20,7 +22,7 @@ body {
     color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 75px; /* Añadido para compensar el navbar fijo */
+    padding-top: 75px;
 }
 
 .container {
@@ -100,8 +102,47 @@ a {
     height: 100%;
 }
 
-.logo img {
-    height: 45px;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.restaurant-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.footer .restaurant-name {
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.footer .restaurant-name::after {
+    background-color: var(--primary-color);
 }
 
 .nav-links {
@@ -539,6 +580,10 @@ a {
     .hero p {
         font-size: 1rem;
     }
+    
+    .restaurant-name {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -601,6 +646,10 @@ a {
         right: 20px;
         font-size: 1.5rem;
     }
+    
+    .restaurant-name {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -617,15 +666,15 @@ a {
         font-size: 2rem;
     }
     
-    .logo img {
-        height: 40px;
-    }
-    
     .footer-logo img {
         height: 40px;
     }
     
     .section {
         padding: 60px 0;
+    }
+    
+    .restaurant-name {
+        font-size: 1.1rem;
     }
 }

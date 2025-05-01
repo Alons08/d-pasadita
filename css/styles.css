@@ -484,10 +484,13 @@ a {
 .info-item a {
     transition: color 0.3s ease;
     font-weight: 500;
+    position: relative;
+    animation: phoneGlow 3s infinite;
 }
 
 .info-item a:hover {
-    color: var(--primary-dark);
+    color: #25D366;
+    text-shadow: 0 0 8px rgba(37, 211, 102, 0.6);
 }
 
 .reserva-map {
@@ -559,27 +562,27 @@ a {
     gap: 10px;
 }
 
-/* Estilos para el crédito del desarrollador */
+/* Estilos para el crédito del desarrollador - Modificado */
 .developer-credit-box {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px 25px;
-    border-radius: 8px;
-    margin-top: 15px;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
-    animation: pulse 2s infinite;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    margin-top: 10px;
 }
 
 .developer-link {
     color: var(--primary-color);
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: normal;
     transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
+    animation: textGlow 2s infinite;
 }
 
 .developer-link:hover {
@@ -587,33 +590,17 @@ a {
     text-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
 }
 
-.developer-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--primary-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+/* Animaciones */
+@keyframes phoneGlow {
+    0% { text-shadow: 0 0 5px rgba(37, 211, 102, 0.3); }
+    50% { text-shadow: 0 0 15px rgba(37, 211, 102, 0.7); }
+    100% { text-shadow: 0 0 5px rgba(37, 211, 102, 0.3); }
 }
 
-.developer-link:hover::after {
-    transform: scaleX(1);
-}
-
-/* Animación de pulso */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.5);
-    }
-    70% {
-        box-shadow: 0 0 0 12px rgba(255, 193, 7, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
-    }
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 193, 7, 0.3); }
+    50% { text-shadow: 0 0 15px rgba(255, 193, 7, 0.7); }
+    100% { text-shadow: 0 0 5px rgba(255, 193, 7, 0.3); }
 }
 
 /* Ajustes responsive */
@@ -704,14 +691,6 @@ a {
     .restaurant-name, .footer .restaurant-name {
         font-size: 1.1rem;
     }
-    
-    .developer-credit-box {
-        padding: 12px 20px;
-    }
-    
-    .developer-link {
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 576px) {
@@ -730,18 +709,5 @@ a {
     
     .section {
         padding: 60px 0;
-    }
-    
-    .restaurant-name, .footer .restaurant-name {
-        font-size: 1rem;
-    }
-    
-    .developer-credit-box {
-        padding: 10px 15px;
-    }
-    
-    .developer-link {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
     }
 }

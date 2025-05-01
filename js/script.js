@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Ajuste del hero para eliminar espacio extra
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    document.querySelector('.hero').style.marginTop = `${navbarHeight}px`;
+    document.querySelector('.hero').style.height = `calc(100vh - ${navbarHeight}px)`;
+    
+    window.addEventListener('resize', function() {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        document.querySelector('.hero').style.marginTop = `${navbarHeight}px`;
+        document.querySelector('.hero').style.height = `calc(100vh - ${navbarHeight}px)`;
+    });
+    
     // Menu filtering functionality
     let menuItems;
     const filterButtons = document.querySelectorAll('.filter-btn');

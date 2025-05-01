@@ -105,40 +105,43 @@ a {
     align-items: center;
 }
 
-/* Efecto de brillo cambiante para el logo en navbar */
+/* Efecto de brillo cambiante entre negro y amarillo para el logo */
 .restaurant-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
-    letter-spacing: 0.5px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-    padding-bottom: 5px;
-    animation: blackGlow 3s infinite alternate;
+    background: linear-gradient(90deg, #000000, #FFC107, #000000);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientGlow 3.5s ease infinite;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
 }
 
-@keyframes blackGlow {
+@keyframes gradientGlow {
     0% {
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        color: #000;
-    }
-    25% {
-        text-shadow: 0 0 10px rgba(50, 50, 50, 0.9);
-        color: #111;
+        background-position: 0% center;
+        text-shadow: 0 2px 8px rgba(255,193,7,0.2);
     }
     50% {
-        text-shadow: 0 0 15px rgba(30, 30, 30, 0.8);
-        color: #222;
-    }
-    75% {
-        text-shadow: 0 0 10px rgba(70, 70, 70, 0.7);
-        color: #111;
+        background-position: 100% center;
+        text-shadow: 0 2px 15px rgba(255,193,7,0.4);
     }
     100% {
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-        color: #000;
+        background-position: 0% center;
+        text-shadow: 0 2px 8px rgba(255,193,7,0.2);
     }
+}
+
+.restaurant-name:hover {
+    animation: gradientGlow 1.5s ease infinite;
+    text-shadow: 0 4px 20px rgba(255,193,7,0.6);
 }
 
 .nav-links {
@@ -569,7 +572,6 @@ a {
     gap: 10px;
 }
 
-/* Estilos para el crédito del desarrollador - Modificado */
 .developer-credit-box {
     background-color: transparent;
     padding: 0;
@@ -597,7 +599,6 @@ a {
     text-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
 }
 
-/* Animaciones */
 @keyframes phoneGlow {
     0% { text-shadow: 0 0 5px rgba(37, 211, 102, 0.3); }
     50% { text-shadow: 0 0 15px rgba(37, 211, 102, 0.7); }
@@ -610,7 +611,6 @@ a {
     100% { text-shadow: 0 0 5px rgba(255, 193, 7, 0.3); }
 }
 
-/* Ajustes responsive */
 @media (max-width: 992px) {
     .nosotros-content, .reserva-content {
         flex-direction: column;
@@ -694,6 +694,10 @@ a {
         right: 20px;
         font-size: 1.5rem;
     }
+    
+    .restaurant-name {
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -714,7 +718,11 @@ a {
         padding: 60px 0;
     }
     
-    .restaurant-name, .footer .restaurant-name {
+    .restaurant-name {
+        font-size: 1.2rem;
+    }
+    
+    .footer .restaurant-name {
         font-size: 1.1rem;
     }
 }

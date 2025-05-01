@@ -105,17 +105,15 @@ a {
     align-items: center;
 }
 
-/* Efecto de brillo cambiante entre negro y amarillo para el logo */
-.restaurant-name {
+/* EFECTO ESPECIAL SOLO PARA EL LOGO DEL NAVBAR */
+.navbar .restaurant-name {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    position: relative;
     background: linear-gradient(90deg, #000000, #FFC107, #000000);
     background-size: 200% auto;
-    color: #000;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -139,7 +137,7 @@ a {
     }
 }
 
-.restaurant-name:hover {
+.navbar .restaurant-name:hover {
     animation: gradientGlow 1.5s ease infinite;
     text-shadow: 0 4px 20px rgba(255,193,7,0.6);
 }
@@ -530,6 +528,7 @@ a {
     align-items: center;
 }
 
+/* LOGO DEL FOOTER (BLANCO SIMPLE) */
 .footer .restaurant-name {
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
@@ -537,6 +536,11 @@ a {
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    /* Se eliminan todos los efectos especiales */
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: none;
+    animation: none;
 }
 
 .footer-social {
@@ -695,7 +699,7 @@ a {
         font-size: 1.5rem;
     }
     
-    .restaurant-name {
+    .navbar .restaurant-name {
         font-size: 1.4rem;
     }
 }
@@ -718,7 +722,7 @@ a {
         padding: 60px 0;
     }
     
-    .restaurant-name {
+    .navbar .restaurant-name {
         font-size: 1.2rem;
     }
     

@@ -20,7 +20,7 @@ body {
     color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 60px; /* Ajustado a la nueva altura del navbar */
+    padding-top: 60px;
 }
 
 .container {
@@ -80,7 +80,6 @@ a {
     margin: 15px auto 0;
 }
 
-/* Navbar Estilizado */
 .navbar {
     background-color: var(--white);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
@@ -114,6 +113,25 @@ a {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     position: relative;
+    padding-bottom: 5px;
+}
+
+.restaurant-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .nav-links {
@@ -161,7 +179,6 @@ a {
     display: none;
 }
 
-/* WhatsApp Float Button */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -188,7 +205,6 @@ a {
     color: var(--white);
 }
 
-/* Hero Section */
 .hero {
     display: flex;
     height: calc(100vh - 60px);
@@ -279,7 +295,6 @@ a {
     color: var(--black);
 }
 
-/* Nosotros Section */
 .nosotros {
     background-color: #FFF5D2;
 }
@@ -314,7 +329,6 @@ a {
     transform: scale(1.03);
 }
 
-/* Menu Section */
 .menu {
     background-color: white;
 }
@@ -439,7 +453,6 @@ a {
     color: var(--primary-dark);
 }
 
-/* Reserva Section */
 .reserva {
     background-color: #FFF5D2;
 }
@@ -484,7 +497,6 @@ a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
 .footer {
     background-color: var(--black);
     color: var(--white);
@@ -500,8 +512,38 @@ a {
     margin-bottom: 30px;
 }
 
-.footer-logo img {
-    height: 50px;
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer .restaurant-name {
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer .restaurant-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.footer .restaurant-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .footer-social {
@@ -534,7 +576,6 @@ a {
     color: var(--gray);
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
     .nosotros-content, .reserva-content {
         flex-direction: column;
@@ -553,7 +594,7 @@ a {
         font-size: 1rem;
     }
     
-    .restaurant-name {
+    .restaurant-name, .footer .restaurant-name {
         font-size: 1.3rem;
     }
 }
@@ -619,7 +660,7 @@ a {
         font-size: 1.5rem;
     }
     
-    .restaurant-name {
+    .restaurant-name, .footer .restaurant-name {
         font-size: 1.1rem;
     }
 }
@@ -642,7 +683,7 @@ a {
         padding: 60px 0;
     }
     
-    .restaurant-name {
+    .restaurant-name, .footer .restaurant-name {
         font-size: 1rem;
     }
 }

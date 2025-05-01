@@ -3,15 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function adjustHero() {
         const navbar = document.querySelector('.navbar');
         const hero = document.querySelector('.hero');
-        
-        // Calcular altura del navbar
         const navbarHeight = navbar.offsetHeight;
-        
-        // Aplicar los ajustes
-        hero.style.marginTop = '0';
         hero.style.height = `calc(100vh - ${navbarHeight}px)`;
-        
-        // Mostrar el hero después de los cálculos
         setTimeout(() => {
             document.querySelector('.hero').classList.add('hero-loaded');
         }, 100);
@@ -61,9 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let menuItems;
     const filterButtons = document.querySelectorAll('.filter-btn');
     
-    // Datos actualizados del menú sin el filtro "Todos"
+    // Datos del menú
     const menuData = [
-        // 🍽️ Platos principales
+        // Platos principales
         {
             name: "Pollo Broaster",
             description: "Crocante pollo broaster acompañado de papas fritas y ensalada fresca",
@@ -72,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             image: "images/pollo-broaster.jpg",
             available: true
         },
+        // ... (resto de los items del menú se mantienen igual)
         {
             name: "Mostrito",
             description: "Delicioso mostrito con carne, papas y salsa especial de la casa",
@@ -243,18 +237,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to generate menu items
     function generateMenuItems() {
         const menuContainer = document.querySelector('.menu-items');
-        
-        // Clear container first
         menuContainer.innerHTML = '';
         
         menuData.forEach(item => {
             const menuItem = document.createElement('div');
             menuItem.className = 'menu-item';
             menuItem.setAttribute('data-category', item.category);
-            
-            // Mostrar solo los platos principales inicialmente
-            const showItem = item.category === 'platos-principales';
-            menuItem.style.display = showItem ? 'block' : 'none';
+            menuItem.style.display = item.category === 'platos-principales' ? 'block' : 'none';
             
             const availabilityClass = item.available ? 'available' : 'not-available';
             const availabilityText = item.available ? 'Disponible' : 'Agotado';
@@ -274,30 +263,21 @@ document.addEventListener('DOMContentLoaded', function() {
             menuContainer.appendChild(menuItem);
         });
         
-        // Update menu items list after generating them
         menuItems = document.querySelectorAll('.menu-item');
     }
     
     // Generate initial menu items
     generateMenuItems();
     
-    // Filter menu items (sin la opción "Todos")
+    // Filter menu items
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
             this.classList.add('active');
-            
             const filterValue = this.getAttribute('data-filter');
             
             menuItems.forEach(item => {
-                if (item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = item.getAttribute('data-category') === filterValue ? 'block' : 'none';
             });
         });
     });
@@ -305,10 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scroll animation to navbar
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 20) {
-            navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
+        navbar.style.boxShadow = window.scrollY > 20 ? '0 4px 10px rgba(0, 0, 0, 0.1)' : '0 1px 6px rgba(0, 0, 0, 0.1)';
     });
 });

@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para ajustar el hero
+    // Función para ajustar el hero section
     function adjustHero() {
         const navbar = document.querySelector('.navbar');
         const hero = document.querySelector('.hero');
         const navbarHeight = navbar.offsetHeight;
+        
         hero.style.height = `calc(100vh - ${navbarHeight}px)`;
+        
         setTimeout(() => {
-            document.querySelector('.hero').classList.add('hero-loaded');
+            hero.classList.add('hero-loaded');
         }, 100);
     }
 
     // Ajustar inicialmente
     adjustHero();
     
-    // Ajustar cuando cambia el tamaño de la ventana
+    // Ajustar al cambiar tamaño de ventana
     window.addEventListener('resize', adjustHero);
     
-    // Menu toggle functionality
+    // Menu toggle para móviles
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('active');
     });
     
-    // Close menu when clicking on a link
+    // Cerrar menú al hacer clic en un enlace
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth scrolling for anchor links
+    // Scroll suave para enlaces
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Menu filtering functionality
+    // Filtrado del menú
     let menuItems;
     const filterButtons = document.querySelectorAll('.filter-btn');
     
@@ -65,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
             image: "images/pollo-broaster.jpg",
             available: true
         },
-        // ... (resto de los items del menú se mantienen igual)
         {
             name: "Mostrito",
             description: "Delicioso mostrito con carne, papas y salsa especial de la casa",
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             available: true
         },
         
-        // 🍔 Hamburguesas
+        // Hamburguesas
         {
             name: "Hamburguesa Simple",
             description: "Clásica hamburguesa con carne, lechuga, tomate y salsa",
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             available: true
         },
         
-        // 🍰 Postres
+        // Postres
         {
             name: "Ensalada de Frutas",
             description: "Mezcla de frutas frescas de temporada",
@@ -191,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             available: false
         },
         
-        // 🥤 Bebidas
+        // Bebidas
         {
             name: "Jugo Surtido",
             description: "Refrescante mezcla de frutas de temporada",
@@ -234,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
     
-    // Function to generate menu items
+    // Generar ítems del menú
     function generateMenuItems() {
         const menuContainer = document.querySelector('.menu-items');
         menuContainer.innerHTML = '';
@@ -243,6 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const menuItem = document.createElement('div');
             menuItem.className = 'menu-item';
             menuItem.setAttribute('data-category', item.category);
+            
+            // Mostrar solo platos principales inicialmente
             menuItem.style.display = item.category === 'platos-principales' ? 'block' : 'none';
             
             const availabilityClass = item.available ? 'available' : 'not-available';
@@ -266,25 +269,34 @@ document.addEventListener('DOMContentLoaded', function() {
         menuItems = document.querySelectorAll('.menu-item');
     }
     
-    // Generate initial menu items
+    // Generar ítems iniciales
     generateMenuItems();
     
-    // Filter menu items
+    // Filtrar menú
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // Remover clase active de todos los botones
             filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón clickeado
             this.classList.add('active');
+            
             const filterValue = this.getAttribute('data-filter');
             
+            // Mostrar/ocultar ítems según categoría
             menuItems.forEach(item => {
                 item.style.display = item.getAttribute('data-category') === filterValue ? 'block' : 'none';
             });
         });
     });
     
-    // Add scroll animation to navbar
+    // Efecto de sombra en navbar al hacer scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        navbar.style.boxShadow = window.scrollY > 20 ? '0 4px 10px rgba(0, 0, 0, 0.1)' : '0 1px 6px rgba(0, 0, 0, 0.1)';
+        if (window.scrollY > 20) {
+            navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.boxShadow = '0 1px 6px rgba(0, 0, 0, 0.1)';
+        }
     });
 });

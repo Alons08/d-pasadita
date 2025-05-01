@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
@@ -33,31 +33,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Menu filtering functionality
+    let menuItems;
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const menuItems = document.querySelectorAll('.menu-item');
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            menuItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-    
-    // Sample menu data (in a real project, this would come from an API or database)
+    // Sample menu data
     const menuData = [
+        {
+            name: "Ceviche Clásico",
+            description: "Pescado fresco marinado en limón con cebolla, ají y cilantro. Acompañado de camote y choclo.",
+            price: 12.99,
+            category: "entradas",
+            image: "images/ceviche.jpg",
+            available: true
+        },
         {
             name: "Lomo Saltado",
             description: "Trozos de lomo de res salteados con cebolla, tomate y papas fritas. Servido con arroz blanco.",
@@ -97,12 +85,31 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "bebidas",
             image: "images/chicha.jpg",
             available: true
+        },
+        {
+            name: "Arroz con Mariscos",
+            description: "Arroz cocido con una mezcla de mariscos frescos y especias.",
+            price: 16.99,
+            category: "platos-fuertes",
+            image: "images/arroz-mariscos.jpg",
+            available: true
+        },
+        {
+            name: "Tiradito",
+            description: "Finas láminas de pescado fresco con salsa de ají amarillo.",
+            price: 13.50,
+            category: "entradas",
+            image: "images/tiradito.jpg",
+            available: true
         }
     ];
     
-    // Function to generate menu items from data
+    // Function to generate menu items
     function generateMenuItems() {
         const menuContainer = document.querySelector('.menu-items');
+        
+        // Clear container first
+        menuContainer.innerHTML = '';
         
         menuData.forEach(item => {
             const menuItem = document.createElement('div');
@@ -114,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             menuItem.innerHTML = `
                 <div class="item-image">
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="${item.image}" alt="${item.name}" loading="lazy">
                     <span class="availability ${availabilityClass}">${availabilityText}</span>
                 </div>
                 <div class="item-info">
@@ -126,15 +133,43 @@ document.addEventListener('DOMContentLoaded', function() {
             
             menuContainer.appendChild(menuItem);
         });
+        
+        // Update menu items list after generating them
+        menuItems = document.querySelectorAll('.menu-item');
     }
     
-    // Call the function to generate menu items
+    // Generate initial menu items
     generateMenuItems();
     
-    // Add scroll animation
+    // Filter menu items
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            menuItems.forEach(item => {
+                if (filterValue === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    if (item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+    
+    // Add scroll animation to navbar
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
+        if (window.scrollY > 20) {
             navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
         } else {
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';

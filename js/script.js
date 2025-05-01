@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Pollo Broaster",
             description: "Crocante pollo broaster acompañado de papas fritas y ensalada fresca",
-            price: 18.00,
+            price: 11.00,
             category: "platos-principales",
             image: "images/pollo-broaster.jpg",
             available: true
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Mostrito",
             description: "Delicioso mostrito con carne, papas y salsa especial de la casa",
-            price: 22.00,
+            price: 13.00,
             category: "platos-principales",
             image: "images/mostrito.jpg",
             available: true
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Lomito de Carne",
             description: "Jugoso lomito de res a la parrilla con guarnición al gusto",
-            price: 25.00,
+            price: 14.00,
             category: "platos-principales",
             image: "images/lomito-carne.jpg",
             available: true
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Lomito de Pollo",
             description: "Tierno lomito de pollo grillado con acompañamiento",
-            price: 22.00,
+            price: 13.00,
             category: "platos-principales",
             image: "images/lomito-pollo.jpg",
             available: true
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Chaufa",
             description: "Arroz chaufa tradicional preparado con ingredientes frescos",
-            price: 16.00,
+            price: 14.00,
             category: "platos-principales",
             image: "images/chaufa.jpg",
             available: true
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Pollo a la Plancha",
             description: "Pechuga de pollo a la plancha con vegetales salteados",
-            price: 20.00,
+            price: 13.00,
             category: "platos-principales",
             image: "images/pollo-plancha.jpg",
             available: true
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Tallarín Criollo",
             description: "Tallarines al estilo peruano con salsa criolla y carne",
-            price: 18.00,
+            price: 14.00,
             category: "platos-principales",
             image: "images/tallarin-criollo.jpg",
             available: true
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Caldo de Gallina",
             description: "Reconfortante caldo preparado con gallina de corral",
-            price: 15.00,
+            price: 10.00,
             category: "platos-principales",
             image: "images/caldo-gallina.jpg",
             available: true
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Hamburguesa Simple",
             description: "Clásica hamburguesa con carne, lechuga, tomate y salsa",
-            price: 12.00,
+            price: 5.00,
             category: "hamburguesas",
             image: "images/hamburguesa-simple.jpg",
             available: true
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Hamburguesa Royal",
             description: "Doble carne con queso, tocino y salsa especial",
-            price: 18.00,
+            price: 6.00,
             category: "hamburguesas",
             image: "images/hamburguesa-royal.jpg",
             available: true
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Hamburguesa Completa",
             description: "Incluye carne, jamón, queso, huevo y todos los aderezos",
-            price: 20.00,
+            price: 8.00,
             category: "hamburguesas",
             image: "images/hamburguesa-completa.jpg",
             available: true
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Hamburguesa Filete de Pollo",
             description: "Filete de pollo empanizado con vegetales frescos",
-            price: 16.00,
+            price: 8.00,
             category: "hamburguesas",
             image: "images/hamburguesa-pollo.jpg",
             available: true
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Salchicono",
             description: "Especial salchipapa con salchichas premium y toppings",
-            price: 14.00,
+            price: 8.00,
             category: "hamburguesas",
             image: "images/salchicono.jpg",
             available: true
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Copa de Helado",
             description: "Deliciosa copa con tres sabores de helado a elección",
-            price: 10.00,
+            price: 5.00,
             category: "postres",
             image: "images/copa-helado.jpg",
             available: true
@@ -195,17 +195,17 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Waffles",
             description: "Crujientes waffles con toppings de tu preferencia",
-            price: 12.00,
+            price: 9.00,
             category: "postres",
             image: "images/waffles.jpg",
-            available: true
+            available: false
         },
         
         // 🥤 Bebidas
         {
             name: "Jugo Surtido",
             description: "Refrescante mezcla de frutas de temporada",
-            price: 6.00,
+            price: 3.00,
             category: "bebidas",
             image: "images/jugo-surtido.jpg",
             available: true
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Café",
             description: "Café pasado o espresso al gusto",
-            price: 4.00,
+            price: 3.00,
             category: "bebidas",
             image: "images/cafe.jpg",
             available: true
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Infusión",
             description: "Variedad de infusiones herbales",
-            price: 4.00,
+            price: 2.00,
             category: "bebidas",
             image: "images/infusion.jpg",
             available: true

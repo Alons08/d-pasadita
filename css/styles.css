@@ -105,41 +105,46 @@ a {
     align-items: center;
 }
 
-/* EFECTO MODIFICADO PARA NAVBAR - AMARILLO + GRIS OSCURO CON TRANSICIÓN LENTA */
+/* EFECTO AMARILLO LENTO PARA NAVBAR */
 .navbar .restaurant-name {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #333333, #FFC107, #333333);
-    background-size: 200% auto;
+    background: linear-gradient(90deg, 
+        #FFD700,  /* Amarillo dorado */
+        #FFC107,  /* Amarillo principal */
+        #FFA000,  /* Amarillo oscuro */
+        #FFC107,  /* Amarillo principal */
+        #FFD700); /* Amarillo dorado */
+    background-size: 300% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientGlow 6s ease infinite;
+    animation: yellowGlow 8s linear infinite;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.6s ease;
+    transition: all 0.8s ease;
 }
 
-@keyframes gradientGlow {
+@keyframes yellowGlow {
     0% {
         background-position: 0% center;
-        text-shadow: 0 2px 8px rgba(255,193,7,0.2);
+        text-shadow: 0 2px 8px rgba(255,193,7,0.3);
     }
     50% {
         background-position: 100% center;
-        text-shadow: 0 2px 15px rgba(255,193,7,0.3);
+        text-shadow: 0 2px 20px rgba(255,193,7,0.6);
     }
     100% {
         background-position: 0% center;
-        text-shadow: 0 2px 8px rgba(255,193,7,0.2);
+        text-shadow: 0 2px 8px rgba(255,193,7,0.3);
     }
 }
 
 .navbar .restaurant-name:hover {
-    animation: gradientGlow 3s ease infinite;
-    text-shadow: 0 4px 20px rgba(255,193,7,0.4);
+    animation: yellowGlow 5s linear infinite;
+    text-shadow: 0 4px 25px rgba(255,215,0,0.7);
 }
 
 .nav-links {

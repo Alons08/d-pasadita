@@ -170,18 +170,24 @@ a {
     color: var(--white);
 }
 
-/* Hero Section */
+/* Hero Section - Corrección para el espacio al recargar */
 .hero {
-    height: calc(100vh - 75px);
+    display: flex;
+    visibility: hidden;
+    height: 100vh;
     min-height: 500px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    display: flex;
     align-items: center;
     text-align: center;
     color: var(--white);
-    margin-top: 75px;
+    margin-top: 0;
+    transition: visibility 0.3s ease;
+}
+
+.hero-loaded {
+    visibility: visible;
 }
 
 .hero-content {
@@ -224,7 +230,7 @@ a {
 
 /* Nosotros Section */
 .nosotros {
-    background-color: #FFF5D2; /*COLOR */
+    background-color: #FFF9E6;
 }
 
 .nosotros-content {
@@ -259,7 +265,7 @@ a {
 
 /* Menu Section */
 .menu {
-    background-color: white; /*COLOR*/
+    background-color: white;
 }
 
 .menu-filters {
@@ -380,7 +386,7 @@ a {
 
 /* Reserva Section */
 .reserva {
-    background-color: #FFF5D2; /*COLOR*/
+    background-color: #FFF5D2;
 }
 
 .reserva-content {

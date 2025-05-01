@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Función para ajustar el hero
+    function adjustHero() {
+        const navbar = document.querySelector('.navbar');
+        const hero = document.querySelector('.hero');
+        
+        // Calcular altura del navbar
+        const navbarHeight = navbar.offsetHeight;
+        
+        // Aplicar los ajustes
+        hero.style.marginTop = `${navbarHeight}px`;
+        hero.style.height = `calc(100vh - ${navbarHeight}px)`;
+    }
+
+    // Ajustar inicialmente
+    adjustHero();
+    
+    // Ajustar cuando cambia el tamaño de la ventana
+    window.addEventListener('resize', adjustHero);
+    
+    // Ajustar después de que todo esté completamente cargado
+    window.addEventListener('load', function() {
+        adjustHero();
+        // Mostrar el hero después de los cálculos
+        document.querySelector('.hero').classList.add('hero-loaded');
+    });
+    
+    // Solución para Safari (puede necesitar un pequeño retraso)
+    setTimeout(adjustHero, 100);
+
     // Menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -30,17 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    });
-    
-    // Ajuste del hero para eliminar espacio extra
-    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-    document.querySelector('.hero').style.marginTop = `${navbarHeight}px`;
-    document.querySelector('.hero').style.height = `calc(100vh - ${navbarHeight}px)`;
-    
-    window.addEventListener('resize', function() {
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        document.querySelector('.hero').style.marginTop = `${navbarHeight}px`;
-        document.querySelector('.hero').style.height = `calc(100vh - ${navbarHeight}px)`;
     });
     
     // Menu filtering functionality
